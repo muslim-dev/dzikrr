@@ -42,7 +42,7 @@ const Index: NextPage = () => {
         <Heading as="h1" mt="15vh" fontSize="md" fontWeight="normal">
           Dzikrr
         </Heading>
-        <Heading as="h2" fontSize="4xl" fontWeight="600">
+        <Heading as="h2" fontSize="4xl" fontWeight="600" maxW="80%">
           Mudah baca dzikir dimana saja
         </Heading>
 
