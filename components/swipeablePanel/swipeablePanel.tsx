@@ -9,7 +9,7 @@ export const SwipeablePanel: React.FC = ({ children }) => {
       w="100%"
       maxW="xl"
       p={6}
-      borderTopRadius="24px"
+      borderTopRadius="40px"
       left="50%"
       bottom="0"
       transform="translateX(-50%)"

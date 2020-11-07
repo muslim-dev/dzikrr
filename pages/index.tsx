@@ -42,7 +42,7 @@ const Index: NextPage = () => {
         <Heading as="h1" mt="15vh" fontSize="md" fontWeight="normal">
           Dzikrr
         </Heading>
-        <Heading as="h2" fontSize="4xl" fontWeight="600" lineHeight="1.2">
+        <Heading as="h2" fontSize="4xl" fontWeight="600">
           Mudah baca dzikir dimana saja
         </Heading>
 
@@ -55,8 +55,9 @@ const Index: NextPage = () => {
                   p={4}
                   color="white"
                   textAlign="center"
-                  borderRadius="16px"
+                  borderRadius="30px"
                   backgroundColor="rgba(0, 15, 26, 0.12)"
+                  cursor="pointer"
                 >
                   <Box mb={10} mt={10}>
                     {nav.icon}
@@ -67,6 +68,19 @@ const Index: NextPage = () => {
             ))}
           </Grid>
         </SwipeablePanel>
+
+        <Box
+          bgImg="url('/bg.png')"
+          bgPos="center"
+          bgSize="cover"
+          w="100%"
+          h="100vh"
+          pos="fixed"
+          top="0"
+          left="0"
+          zIndex="-1"
+          opacity="0.3"
+        />
       </Box>
     </>
   );
