@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, Heading, Icon, Text } from '@chakra-ui/core';
+import { Box, Grid, Heading, Icon, Text } from '@chakra-ui/core';
 import { SwipeablePanel } from '@components/swipeablePanel';
 import { routes } from '@utils/routes';
 import { NextPage } from 'next';
@@ -39,10 +39,15 @@ const Index: NextPage = () => {
       <NextSeo title="Dzikrr" description="Aplikasi Dzikir Pagi dan Petang" />
 
       <Box h="100vh" overflow="auto" pos="relative" pl={4} pr={4}>
-        <Heading as="h1" mt="15vh" fontSize="md" fontWeight="normal">
-          Dzikrr
-        </Heading>
-        <Heading as="h2" fontSize="4xl" fontWeight="600" maxW="80%">
+        <Box
+          as="img"
+          src="/dzikrr-logo.png"
+          alt="Dzikrr Logo"
+          h="24px"
+          mt="15vh"
+          mb="20px"
+        />
+        <Heading as="h1" fontSize="4xl" fontWeight="600" maxW="80%">
           Mudah baca dzikir dimana saja
         </Heading>
 
