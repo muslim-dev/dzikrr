@@ -7,13 +7,13 @@ export const DarkThemeContext = createContext({
 });
 
 export const darkTheme = {
-  primary: '#5f84cd',
+  primary: '#02A3C1',
   background: '#0f121c',
   highlight: '#e4b04e',
 };
 
 export const lightTheme = {
-  primary: '#707070',
+  primary: '#02A3C1',
   background: '#fff',
   highlight: '#707070',
 };
@@ -25,9 +25,9 @@ export const theme = (darkMode: boolean) =>
     },
     colors: darkMode ? darkTheme : lightTheme,
     fonts: {
-      body: 'sans-serif',
-      heading: 'sans-serif',
-      mono: 'sans-serif',
+      body: 'Work Sans, sans-serif',
+      heading: 'Work Sans, sans-serif',
+      mono: 'Work Sans, sans-serif',
     },
     styles: {
       global: () => ({
