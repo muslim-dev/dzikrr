@@ -132,7 +132,7 @@ const Header: React.FC = () => {
       <Drawer isOpen={isOpen} placement="bottom" onClose={onClose}>
         <DrawerOverlay>
           <DrawerContent borderTopRadius="40px" pt="50px" pb={6}>
-            <DrawerCloseButton right="22px" top="22px" />
+            <DrawerCloseButton right="22px" top="22px" borderRadius="50%" />
             <DrawerBody>
               {options.map((option, index) => (
                 <Link href={option.link} key={index}>

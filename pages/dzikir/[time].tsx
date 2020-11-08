@@ -1,10 +1,24 @@
-import { Box, Flex, Text } from '@chakra-ui/core';
+import {
+  useDisclosure,
+  Box,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
+  Flex,
+  Text,
+} from '@chakra-ui/core';
 import { useDzikr } from 'api/useDzikr';
 import { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
-import React from 'react';
+import React, { useState } from 'react';
 
 const Index: NextPage = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [dzikrTitle, setDzikrTitle] = useState('');
+  const [faedahContent, setFaedahContent] = useState('');
   const { data } = useDzikr();
 
   return (
@@ -47,10 +61,36 @@ const Index: NextPage = () => {
               {localStorage.getItem('display_translatedId') && (
                 <Text>{item.data.translated_id}</Text>
               )}
+              {localStorage.getItem('display_faedah') && (
+                <Box
+                  py={2}
+                  mt={4}
+                  cursor="pointer"
+                  fontSize="sm"
+                  opacity={0.7}
+                  onClick={() => {
+                    onOpen();
+                    setDzikrTitle(item.data.title);
+                    setFaedahContent(item.data.faedah);
+                  }}
+                >
+                  Lihat Keutamaan
+                </Box>
+              )}
             </Box>
           </Box>
         ))}
       </Box>
+
+      <Drawer isOpen={isOpen} placement="bottom" onClose={onClose}>
+        <DrawerOverlay>
+          <DrawerContent borderTopRadius="40px" pt="50px" pb={6}>
+            <DrawerCloseButton right="22px" top="22px" borderRadius="50%" />
+            <DrawerHeader>Keutamaan {dzikrTitle}</DrawerHeader>
+            <DrawerBody>{faedahContent}</DrawerBody>
+          </DrawerContent>
+        </DrawerOverlay>
+      </Drawer>
     </>
   );
 };
