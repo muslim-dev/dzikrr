@@ -12,8 +12,10 @@ import {
   IconButton,
   Text,
 } from '@chakra-ui/core';
+import { routes } from '@utils/routes';
 import { startCase, toLower } from 'lodash';
 import { useRouter } from 'next/dist/client/router';
+import Link from 'next/link';
 import React from 'react';
 import { FiChevronLeft, FiMoreVertical } from 'react-icons/fi';
 
@@ -34,6 +36,7 @@ const iconButtonProps = {
 
 const options = [
   {
+    link: routes.setting,
     text: 'Pengaturan',
     icon: (
       <Icon width="16px" height="16px" viewBox="0 0 16 16">
@@ -46,6 +49,7 @@ const options = [
     ),
   },
   {
+    link: routes.share,
     text: 'Bagikan',
     icon: (
       <Icon width="14px" height="16px" viewBox="0 0 14 16">
@@ -58,6 +62,7 @@ const options = [
     ),
   },
   {
+    link: routes.about,
     text: 'Info Aplikasi',
     icon: (
       <Icon width="16px" height="16px" viewBox="0 0 16 16">
@@ -73,7 +78,7 @@ const options = [
 
 const Header: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const routes = useRouter();
+  const { back, query } = useRouter();
 
   return (
     <>
@@ -92,11 +97,11 @@ const Header: React.FC = () => {
             <IconButton
               aria-label="Back"
               icon={<FiChevronLeft />}
-              onClick={routes.back}
+              onClick={back}
               {...iconButtonProps}
             />
             <Heading as="h1" fontSize="lg" ml={4}>
-              Dzikir {startCase(toLower(routes.query.time as string))}
+              Dzikir {startCase(toLower(query.time as string))}
             </Heading>
           </Flex>
 
@@ -115,12 +120,14 @@ const Header: React.FC = () => {
             <DrawerCloseButton right="22px" top="22px" />
             <DrawerBody>
               {options.map((option) => (
-                <Flex p={4} fontSize="lg" align="center">
-                  {option.icon}
-                  <Text ml={2} as="span">
-                    {option.text}
-                  </Text>
-                </Flex>
+                <Link href={option.link}>
+                  <Flex p={4} fontSize="lg" align="center" as="a">
+                    {option.icon}
+                    <Text ml={2} as="span">
+                      {option.text}
+                    </Text>
+                  </Flex>
+                </Link>
               ))}
             </DrawerBody>
           </DrawerContent>
