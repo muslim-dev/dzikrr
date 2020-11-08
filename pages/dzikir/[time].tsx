@@ -39,7 +39,14 @@ const Index: NextPage = () => {
                 >
                   {item.data.arabic}
                 </Box>
-                <Text>{item.data.translated_id}</Text>
+                {localStorage.getItem('display_arabicLatin') && (
+                  <Text fontStyle="italic" mb={4}>
+                    {item.data.arabic_latin}
+                  </Text>
+                )}
+                {localStorage.getItem('display_translatedId') && (
+                  <Text>{item.data.translated_id}</Text>
+                )}
               </Box>
             </Box>
           ))}
