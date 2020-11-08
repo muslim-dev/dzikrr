@@ -8,7 +8,7 @@ import React from 'react';
 
 const navigationData = [
   {
-    link: routes.dzikr('morning'),
+    link: routes.dzikr('pagi'),
     text: 'Dzikir Pagi',
     icon: (
       <Icon viewBox="0 0 56 56" w="56px" h="56px">
@@ -20,7 +20,7 @@ const navigationData = [
     ),
   },
   {
-    link: routes.dzikr('afternoon'),
+    link: routes.dzikr('petang'),
     text: 'Dzikir Petang',
     icon: (
       <Icon viewBox="0 0 37 50" w="50px" h="50px">
