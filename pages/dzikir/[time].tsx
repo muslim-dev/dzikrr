@@ -11,7 +11,7 @@ const Index: NextPage = () => {
     <>
       <NextSeo title="Dzikrr" description="Aplikasi Dzikir Pagi dan Petang" />
 
-      <Box pos="relative" mt="72px">
+      <Box pos="relative">
         {data &&
           [...data, ...data, ...data].map((item) => (
             <Box
