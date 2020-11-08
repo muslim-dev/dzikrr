@@ -12,7 +12,7 @@ const Index: NextPage = () => {
   }>({
     translatedId: {
       text: 'Terjemahan',
-      active: true,
+      active: false,
     },
     arabicLatin: {
       text: 'Latin',
@@ -48,7 +48,7 @@ const Index: NextPage = () => {
       localStorage.setItem(`display_${value}`, 'active');
       newOptions[value].active = true;
     } else {
-      localStorage.removeItem(`display_${value}`);
+      localStorage.setItem(`display_${value}`, '');
       newOptions[value].active = false;
     }
     setOptions(newOptions);
@@ -80,6 +80,7 @@ const Index: NextPage = () => {
               _last={{
                 borderBottom: 'none',
               }}
+              key={option}
             >
               <Text>{options[option].text}</Text>
               <Switch

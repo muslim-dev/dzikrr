@@ -135,7 +135,7 @@ const Header: React.FC = () => {
             <DrawerCloseButton right="22px" top="22px" />
             <DrawerBody>
               {options.map((option) => (
-                <Link href={option.link}>
+                <Link href={option.link} key={option}>
                   <Flex
                     py={4}
                     fontSize="lg"

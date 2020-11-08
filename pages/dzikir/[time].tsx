@@ -13,10 +13,11 @@ const Index: NextPage = () => {
 
       <Box pos="relative">
         {data &&
-          [...data, ...data, ...data].map((item) => (
+          data.map((item) => (
             <Box
               _even={{ bgColor: 'rgba(251, 240, 218, 0.24)' }}
               borderBottom="1px solid rgba(0, 0, 0, 0.1)"
+              key={item.id}
             >
               <Flex
                 justify="space-between"
