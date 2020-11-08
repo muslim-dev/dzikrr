@@ -1,4 +1,4 @@
 export const routes = {
   home: '/',
-  dzikr: '/dzikr',
+  dzikr: (time: 'morning' | 'afternoon') => `/dzikr/${time}`,
 };
