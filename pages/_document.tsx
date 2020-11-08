@@ -21,6 +21,10 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;400;600&display=swap"
             rel="stylesheet"
           />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Scheherazade:wght@700&display=swap"
+            rel="stylesheet"
+          />
           <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" href="/static/gifaeriyanto.png" />
           <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
