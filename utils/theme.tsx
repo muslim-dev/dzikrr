@@ -32,6 +32,7 @@ export const theme = (darkMode: boolean) =>
     styles: {
       global: () => ({
         body: {
+          color: '#38454D',
           lineHeight: 1.6,
         },
       }),
