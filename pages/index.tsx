@@ -1,5 +1,5 @@
 import { Box, Grid, Heading, Icon, Text } from '@chakra-ui/core';
-import { SwipeablePanel } from '@components/swipeablePanel';
+import { Navigation } from '@components/navigation';
 import { routes } from '@utils/routes';
 import { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
@@ -8,7 +8,7 @@ import React from 'react';
 
 const navigationData = [
   {
-    link: routes.dzikr,
+    link: routes.dzikr('morning'),
     text: 'Dzikir Pagi',
     icon: (
       <Icon viewBox="0 0 56 56" w="56px" h="56px">
@@ -20,7 +20,7 @@ const navigationData = [
     ),
   },
   {
-    link: routes.dzikr,
+    link: routes.dzikr('afternoon'),
     text: 'Dzikir Petang',
     icon: (
       <Icon viewBox="0 0 37 50" w="50px" h="50px">
@@ -51,7 +51,7 @@ const Index: NextPage = () => {
           Mudah baca dzikir dimana saja
         </Heading>
 
-        <SwipeablePanel>
+        <Navigation>
           <Grid gap={6} templateColumns="repeat(2, 1fr)">
             {navigationData.map((nav, index) => (
               <Link href={nav.link} key={index}>
@@ -60,7 +60,7 @@ const Index: NextPage = () => {
                   p={4}
                   color="white"
                   textAlign="center"
-                  borderRadius="30px"
+                  borderRadius="24px"
                   backgroundColor="rgba(0, 15, 26, 0.12)"
                   cursor="pointer"
                 >
@@ -72,7 +72,7 @@ const Index: NextPage = () => {
               </Link>
             ))}
           </Grid>
-        </SwipeablePanel>
+        </Navigation>
 
         <Box
           bgImg="url('/bg.png')"
