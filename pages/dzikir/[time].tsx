@@ -13,7 +13,7 @@ const Index: NextPage = () => {
 
       <Box pos="relative" mt="72px">
         {data &&
-          [...data, ...data, ...data].map((item, index) => (
+          [...data, ...data, ...data].map((item) => (
             <Box
               _even={{ bgColor: 'rgba(251, 240, 218, 0.24)' }}
               borderBottom="1px solid rgba(0, 0, 0, 0.1)"
