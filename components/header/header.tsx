@@ -16,7 +16,7 @@ import { routes } from '@utils/routes';
 import { startCase, toLower } from 'lodash';
 import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiChevronLeft, FiMoreVertical } from 'react-icons/fi';
 
 const iconButtonProps = {
@@ -78,7 +78,22 @@ const options = [
 
 const Header: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { back, query } = useRouter();
+  const [titlePage, setTitlePage] = useState('');
+  const { back, query, pathname } = useRouter();
+
+  useEffect(() => {
+    switch (pathname) {
+      case '/dzikir/[time]':
+        setTitlePage(`Dzikir ${startCase(toLower(query.time as string))}`);
+        break;
+
+      default:
+        setTitlePage(startCase(toLower(pathname)));
+        break;
+    }
+
+    onClose();
+  }, [pathname]);
 
   return (
     <>
@@ -101,7 +116,7 @@ const Header: React.FC = () => {
               {...iconButtonProps}
             />
             <Heading as="h1" fontSize="lg" ml={4}>
-              Dzikir {startCase(toLower(query.time as string))}
+              {titlePage}
             </Heading>
           </Flex>
 
@@ -121,7 +136,7 @@ const Header: React.FC = () => {
             <DrawerBody>
               {options.map((option) => (
                 <Link href={option.link}>
-                  <Flex p={4} fontSize="lg" align="center" as="a">
+                  <Flex py={4} fontSize="lg" align="center" as="a">
                     {option.icon}
                     <Text ml={2} as="span">
                       {option.text}
