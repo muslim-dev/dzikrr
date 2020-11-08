@@ -136,7 +136,13 @@ const Header: React.FC = () => {
             <DrawerBody>
               {options.map((option) => (
                 <Link href={option.link}>
-                  <Flex py={4} fontSize="lg" align="center" as="a">
+                  <Flex
+                    py={4}
+                    fontSize="lg"
+                    align="center"
+                    as="a"
+                    cursor="pointer"
+                  >
                     {option.icon}
                     <Text ml={2} as="span">
                       {option.text}
