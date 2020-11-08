@@ -12,6 +12,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
+    localStorage.setItem('display_arabic', 'active');
     setDarkMode(localStorageManager.get() === 'dark');
   }, []);
 
