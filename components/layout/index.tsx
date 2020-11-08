@@ -13,7 +13,7 @@ export const Layout: React.FC = ({ children }) => {
   return (
     <>
       <Header />
-      <Container overflow="auto" p={0}>
+      <Container overflow="auto" p={0} mt="72px">
         {children}
       </Container>
     </>
