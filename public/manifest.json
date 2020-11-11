@@ -1,6 +1,6 @@
 {
-  "name": "Next.js Starter",
-  "short_name": "Next.js Starter",
+  "name": "Dzikrr",
+  "short_name": "Dzikrr",
   "icons": [
     {
       "src": "/icon-192.png",
@@ -14,7 +14,7 @@
     }
   ],
   "background_color": "#FFFFFF",
-  "description": "Don't take too long to get started!",
+  "description": "Aplikasi Dzikir Pagi dan Petang",
   "display": "fullscreen",
   "start_url": "/",
   "theme_color": "#000"

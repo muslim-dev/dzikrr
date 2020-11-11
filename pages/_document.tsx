@@ -26,7 +26,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <link rel="manifest" href="/manifest.json" />
-          <link rel="apple-touch-icon" href="/static/gifaeriyanto.png" />
+          <link rel="apple-touch-icon" href="/icon-transparent.png" />
           <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
           <link rel="icon" href="/favicon.ico" type="image/x-icon" />
           <meta name="theme-color" content="#FFFFFF" />
