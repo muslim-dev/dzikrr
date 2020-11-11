@@ -1,12 +1,14 @@
 import { Box } from '@chakra-ui/core';
-import DzikrItem from '@components/dzikrItem/dzikrItem';
-import { useDzikr, IDzikrData } from 'api/useDzikr';
+import { DzikrItem } from '@components/dzikrItem';
+import { useDzikr, IDzikrData, TTime } from 'api/useDzikr';
 import { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/dist/client/router';
 import React from 'react';
 
 const Index: NextPage = () => {
-  const { data } = useDzikr();
+  const { query } = useRouter();
+  const { data } = useDzikr({ time: query.time as TTime });
 
   return (
     <>

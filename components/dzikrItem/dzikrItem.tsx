@@ -20,7 +20,7 @@ export interface IDzikrItem extends ChakraProps {
   noFaedah?: boolean;
 }
 
-const DzikrItem: React.FC<IDzikrItem> = ({
+export const DzikrItem: React.FC<IDzikrItem> = ({
   noTitle,
   noFaedah,
   data,
@@ -100,5 +100,3 @@ const DzikrItem: React.FC<IDzikrItem> = ({
     </>
   );
 };
-
-export default DzikrItem;
