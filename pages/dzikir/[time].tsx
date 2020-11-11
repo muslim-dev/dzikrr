@@ -22,7 +22,10 @@ const Index: NextPage = () => {
             const translatedIds: string[] = item.data.translated_id.split('@');
 
             return (
-              <Box _even={{ bgColor: 'rgba(251, 240, 218, 0.24)' }}>
+              <Box
+                _even={{ bgColor: 'rgba(251, 240, 218, 0.24)' }}
+                key={item.id}
+              >
                 {arabics.map((arabic, index) => (
                   <DzikrItem
                     noTitle={index > 0}
@@ -35,7 +38,7 @@ const Index: NextPage = () => {
                         translated_id: translatedIds[index],
                       } as IDzikrData
                     }
-                    key={item.id}
+                    key={index}
                     borderBottom={0}
                     _last={{
                       borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
