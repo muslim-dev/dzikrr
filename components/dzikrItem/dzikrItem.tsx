@@ -40,7 +40,7 @@ export const DzikrItem: React.FC<IDzikrItem> = ({
             p={4}
             align="flex-end"
           >
-            <Text fontWeight="600" mr={2} flex={2}>
+            <Text fontWeight="600" mr={2} flex={2.5}>
               {data.title}
             </Text>
             <Text fontSize="sm" textAlign="right" opacity={0.7} flex={1}>
