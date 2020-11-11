@@ -15,6 +15,16 @@ const Index: NextPage = () => {
       <NextSeo title="Dzikrr" description="Aplikasi Dzikir Pagi dan Petang" />
 
       <Box pos="relative">
+        <DzikrItem
+          noFaedah
+          data={{
+            arabic: 'أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ',
+            note: 'Dibaca 1x',
+            title: `Ta'awudz`,
+            translated_id:
+              'Aku berlindung kepada Allah dari godaan syaitan yang terkutuk.',
+          }}
+        />
         {data?.map((item) => {
           if (item.data.arabic.indexOf('@') > 0) {
             const arabics: string[] = item.data.arabic.split('@');
