@@ -1,6 +1,7 @@
 import {
   useDisclosure,
   Box,
+  ChakraProps,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -11,34 +12,40 @@ import {
   Text,
 } from '@chakra-ui/core';
 import { IDzikrData } from 'api/useDzikr';
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 
-export interface IDzikrItem {
+export interface IDzikrItem extends ChakraProps {
   data: IDzikrData;
+  noTitle?: boolean;
+  noFaedah?: boolean;
 }
 
-const DzikrItem: React.FC<IDzikrItem> = ({ data, ...props }) => {
+const DzikrItem: React.FC<IDzikrItem> = ({
+  noTitle,
+  noFaedah,
+  data,
+  ...props
+}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [dzikrTitle, setDzikrTitle] = useState('');
   const [faedahContent, setFaedahContent] = useState('');
 
   return (
-    <Fragment {...props}>
-      <Box
-        _even={{ bgColor: 'rgba(251, 240, 218, 0.24)' }}
-        borderBottom="1px solid rgba(0, 0, 0, 0.1)"
-      >
-        <Flex
-          justify="space-between"
-          borderBottom="1px solid rgba(0, 0, 0, 0.1)"
-          p={4}
-          align="baseline"
-        >
-          <Text fontWeight="600">{data.title}</Text>
-          <Text fontSize="sm" opacity={0.7}>
-            {data.note}
-          </Text>
-        </Flex>
+    <>
+      <Box borderBottom="1px solid rgba(0, 0, 0, 0.1)" {...props}>
+        {!noTitle && (
+          <Flex
+            justify="space-between"
+            borderBottom="1px solid rgba(0, 0, 0, 0.1)"
+            p={4}
+            align="baseline"
+          >
+            <Text fontWeight="600">{data.title}</Text>
+            <Text fontSize="sm" opacity={0.7}>
+              {data.note}
+            </Text>
+          </Flex>
+        )}
         <Box p={4}>
           <Box
             textAlign="right"
@@ -58,7 +65,7 @@ const DzikrItem: React.FC<IDzikrItem> = ({ data, ...props }) => {
               "{data.translated_id}"{data.narrator && ` [${data.narrator}]`}
             </Text>
           )}
-          {localStorage.getItem('display_faedah') && data.faedah && (
+          {localStorage.getItem('display_faedah') && data.faedah && !noFaedah && (
             <Box
               py={2}
               mt={4}
@@ -77,18 +84,20 @@ const DzikrItem: React.FC<IDzikrItem> = ({ data, ...props }) => {
         </Box>
       </Box>
 
-      <Drawer isOpen={isOpen} placement="bottom" onClose={onClose}>
-        <DrawerOverlay>
-          <DrawerContent borderTopRadius="40px" pt="50px" pb={6}>
-            <DrawerCloseButton right="22px" top="22px" borderRadius="50%" />
-            <DrawerHeader>Keutamaan {dzikrTitle}</DrawerHeader>
-            <DrawerBody>
-              <Box dangerouslySetInnerHTML={{ __html: faedahContent }} />
-            </DrawerBody>
-          </DrawerContent>
-        </DrawerOverlay>
-      </Drawer>
-    </Fragment>
+      {!noFaedah && (
+        <Drawer isOpen={isOpen} placement="bottom" onClose={onClose}>
+          <DrawerOverlay>
+            <DrawerContent borderTopRadius="40px" pt="50px" pb={6}>
+              <DrawerCloseButton right="22px" top="22px" borderRadius="50%" />
+              <DrawerHeader>Keutamaan {dzikrTitle}</DrawerHeader>
+              <DrawerBody>
+                <Box dangerouslySetInnerHTML={{ __html: faedahContent }} />
+              </DrawerBody>
+            </DrawerContent>
+          </DrawerOverlay>
+        </Drawer>
+      )}
+    </>
   );
 };
 
