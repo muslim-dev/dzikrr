@@ -4,12 +4,12 @@ import { useQuery } from 'react-query';
 
 export interface IDzikrData {
   arabic: string;
-  arabic_latin: string;
-  faedah: string;
-  narrator: string;
   note: string;
   title: string;
   translated_id: string;
+  arabic_latin?: string;
+  narrator?: string;
+  faedah?: string;
 }
 
 export interface IFetchDzikrResult {
@@ -20,14 +20,17 @@ export interface IFetchDzikrResult {
 export const fetchDzikr = (): Promise<IFetchDzikrResult[]> => {
   return new Promise((resolve, reject) => {
     try {
-      db.collection('dzikr').onSnapshot((snapshot) => {
-        resolve(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            data: doc.data(),
-          })),
-        );
-      });
+      db.collection('dzikr')
+        // .where('time', '==', '')
+        .orderBy('order', 'asc')
+        .onSnapshot((snapshot) => {
+          resolve(
+            snapshot.docs.map((doc) => ({
+              id: doc.id,
+              data: doc.data(),
+            })),
+          );
+        });
     } catch (error) {
       reject(error);
     }
