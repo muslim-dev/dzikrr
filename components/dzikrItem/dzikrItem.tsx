@@ -20,7 +20,7 @@ export interface IDzikrItem extends ChakraProps {
   noFaedah?: boolean;
 }
 
-export const DzikrItem: React.FC<IDzikrItem> = ({
+const DzikrItem: React.FC<IDzikrItem> = ({
   noTitle,
   noFaedah,
   data,
@@ -57,17 +57,17 @@ export const DzikrItem: React.FC<IDzikrItem> = ({
             mb={4}
             dangerouslySetInnerHTML={{ __html: data.arabic }}
           />
-          {localStorage?.getItem('display_arabicLatin') && data.arabic_latin && (
+          {localStorage.getItem('display_arabicLatin') && data.arabic_latin && (
             <Text fontStyle="italic" mb={4}>
               {data.arabic_latin}
             </Text>
           )}
-          {localStorage?.getItem('display_translatedId') && (
+          {localStorage.getItem('display_translatedId') && (
             <Text>
               "{data.translated_id}"{data.narrator && ` [${data.narrator}]`}
             </Text>
           )}
-          {localStorage?.getItem('display_faedah') && data.faedah && !noFaedah && (
+          {localStorage.getItem('display_faedah') && data.faedah && !noFaedah && (
             <Box
               py={2}
               mt={4}
@@ -102,3 +102,5 @@ export const DzikrItem: React.FC<IDzikrItem> = ({
     </>
   );
 };
+
+export default DzikrItem;
