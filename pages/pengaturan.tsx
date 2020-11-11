@@ -56,7 +56,10 @@ const Index: NextPage = () => {
 
   return (
     <>
-      <NextSeo title="Dzikrr" description="Aplikasi Dzikir Pagi dan Petang" />
+      <NextSeo
+        title="Dzikrr | Pengaturan"
+        description="Aplikasi Dzikir Pagi dan Petang"
+      />
 
       <Box bgColor="#F9F9F9" minH="100vh">
         <Box

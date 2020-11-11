@@ -11,6 +11,7 @@ import {
   Flex,
   Text,
 } from '@chakra-ui/core';
+import { gaLogEvent } from '@utils/googleAnalytics';
 import { IDzikrData } from 'api/useDzikr';
 import React, { useState } from 'react';
 
@@ -78,6 +79,10 @@ const DzikrItem: React.FC<IDzikrItem> = ({
                 onOpen();
                 setDzikrTitle(data.title);
                 setFaedahContent(data.faedah);
+                gaLogEvent(
+                  `Lihat keutamaan ${data.title}`,
+                  'Click "Lihat Keutamaan" button',
+                );
               }}
             >
               Lihat Keutamaan

@@ -16,7 +16,10 @@ const Index: NextPage = () => {
 
   return (
     <>
-      <NextSeo title="Dzikrr" description="Aplikasi Dzikir Pagi dan Petang" />
+      <NextSeo
+        title={`Dzikrr | Dzikir ${query.time}`}
+        description="Aplikasi Dzikir Pagi dan Petang"
+      />
 
       {isFetching ? (
         <Box py={10} textAlign="center">
