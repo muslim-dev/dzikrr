@@ -29,7 +29,7 @@ export const fetchDzikr = (
   return new Promise((resolve, reject) => {
     try {
       db.collection('dzikr')
-        // .where('time', 'in', [params.time, ''])
+        .where('time', 'in', [params.time, ''])
         .orderBy('order', 'asc')
         .onSnapshot((snapshot) => {
           resolve(
