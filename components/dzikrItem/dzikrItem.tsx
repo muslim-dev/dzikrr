@@ -38,10 +38,12 @@ export const DzikrItem: React.FC<IDzikrItem> = ({
             justify="space-between"
             borderBottom="1px solid rgba(0, 0, 0, 0.1)"
             p={4}
-            align="baseline"
+            align="flex-end"
           >
-            <Text fontWeight="600">{data.title}</Text>
-            <Text fontSize="sm" opacity={0.7}>
+            <Text fontWeight="600" mr={2} flex={2}>
+              {data.title}
+            </Text>
+            <Text fontSize="sm" textAlign="right" opacity={0.7} flex={1}>
               {data.note}
             </Text>
           </Flex>
