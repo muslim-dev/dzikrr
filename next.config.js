@@ -1,4 +1,6 @@
 const path = require('path');
+const withPWA = require('next-pwa');
+const runtimeCaching = require('next-pwa/cache');
 
 const nextConfig = {
   // your config
@@ -23,6 +25,13 @@ const nextConfig = {
 
     return config;
   },
+
+  // PWA config
+  pwa: {
+    disable: process.env.NODE_ENV === 'development',
+    dest: 'public',
+    runtimeCaching,
+  },
 };
 
-module.exports = nextConfig;
+module.exports = withPWA(nextConfig);

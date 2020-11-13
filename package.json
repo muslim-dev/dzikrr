@@ -26,6 +26,7 @@
     "framer-motion": "^2.9.4",
     "lodash": "^4.17.20",
     "next": "^9.5.3",
+    "next-pwa": "^3.1.5",
     "next-seo": "^4.14.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
