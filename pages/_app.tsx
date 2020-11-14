@@ -20,10 +20,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     }
     setDarkMode(localStorageManager.get() === 'dark');
 
-    if (!(window as any).GA_INITIALIZED) {
-      gaInit();
-      (window as any).GA_INITIALIZED = true;
-    }
+    gaInit();
   }, []);
 
   useEffect(() => {
