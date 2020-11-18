@@ -1,4 +1,4 @@
-import ReactGA, { pageview } from 'react-ga';
+import ReactGA from 'react-ga';
 
 export const gaInit = () => {
   const googleKey: string = process.env.API_GOOGLE_ANALYTIC_KEY || '';
