@@ -48,5 +48,6 @@ export const fetchDzikr = (
 export const useDzikr = (params: IFetchDzikrParams) => {
   return useQuery(['dzikr', params], () => fetchDzikr(params), {
     enabled: params.time,
+    refetchOnWindowFocus: false,
   });
 };
