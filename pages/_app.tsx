@@ -12,6 +12,7 @@ const queryCache = new QueryCache();
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [darkMode, setDarkMode] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] = useState<any>();
   const { pathname } = useRouter();
 
   useEffect(() => {
@@ -21,7 +22,18 @@ const App = ({ Component, pageProps }: AppProps) => {
     setDarkMode(localStorageManager.get() === 'dark');
 
     gaInit();
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    });
   }, []);
+
+  useEffect(() => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+    }
+  }, [deferredPrompt]);
 
   useEffect(() => {
     gaLogPageView();
