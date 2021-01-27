@@ -29,6 +29,7 @@ export const fetchDzikr = (
   return new Promise((resolve, reject) => {
     try {
       db.collection('dzikr')
+        // empty string is mean both
         .where('time', 'in', [params.time, ''])
         .orderBy('order', 'asc')
         .onSnapshot((snapshot) => {
