@@ -20,9 +20,13 @@ const App = ({ Component, pageProps }: AppProps) => {
   };
 
   useEffect(() => {
-    if (localStorage.getItem('display_translatedId') === undefined) {
+    if (localStorage.getItem('display_translatedId') === null) {
       localStorage.setItem('display_translatedId', 'active');
     }
+    if (localStorage.getItem('display_faedah') === null) {
+      localStorage.setItem('display_faedah', 'active');
+    }
+
     setDarkMode(localStorageManager.get() === 'dark');
 
     gaInit();
