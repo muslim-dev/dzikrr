@@ -12,8 +12,12 @@ const queryCache = new QueryCache();
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [darkMode, setDarkMode] = useState(false);
-  const [deferredPrompt, setDeferredPrompt] = useState<any>();
   const { pathname } = useRouter();
+
+  const installPrompt = (e: any) => {
+    e.preventDefault();
+    e.prompt();
+  };
 
   useEffect(() => {
     if (localStorage.getItem('display_translatedId') === undefined) {
@@ -23,17 +27,11 @@ const App = ({ Component, pageProps }: AppProps) => {
 
     gaInit();
 
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
-    });
+    window.addEventListener('beforeinstallprompt', installPrompt);
+    return () => {
+      window.removeEventListener('beforeinstallprompt', installPrompt);
+    };
   }, []);
-
-  useEffect(() => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-    }
-  }, [deferredPrompt]);
 
   useEffect(() => {
     gaLogPageView();
