@@ -56,6 +56,7 @@ const DzikrItem: React.FC<IDzikrItem> = ({
             fontWeight="700"
             fontSize="2xl"
             lineHeight="2.4"
+            letterSpacing={{ base: '-0.5px', lg: 0 }}
             mb={4}
             dangerouslySetInnerHTML={{ __html: data.arabic }}
           />
