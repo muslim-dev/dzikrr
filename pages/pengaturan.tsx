@@ -1,4 +1,5 @@
 import { Box, Flex, Switch, Text } from '@chakra-ui/core';
+import { gaLogEvent } from '@utils/googleAnalytics';
 import { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import React, { useEffect, useState } from 'react';
@@ -51,6 +52,7 @@ const Index: NextPage = () => {
       localStorage.setItem(`display_${value}`, '');
       newOptions[value].active = false;
     }
+    gaLogEvent(`Set ${value} to ${checked ? 'on' : 'off'}`, 'Display settings');
     setOptions(newOptions);
   };
 

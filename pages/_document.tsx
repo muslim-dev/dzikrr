@@ -17,18 +17,20 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
             href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;400;600&display=swap"
             rel="stylesheet"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Scheherazade:wght@700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Amiri&display=swap"
             rel="stylesheet"
           />
           <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" href="/icon-192.png" />
           <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
           <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="theme-color" content="#FFFFFF" />
         </Head>
         <body>

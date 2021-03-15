@@ -31,13 +31,13 @@ export const fetchDzikr = (
       db.collection('dzikr')
         .where('time', 'in', [params.time, ''])
         .orderBy('order', 'asc')
-        .onSnapshot((snapshot) => {
-          resolve(
-            snapshot.docs.map((doc) => ({
-              id: doc.id,
-              data: doc.data(),
-            })),
-          );
+        .get()
+        .then((querySnapshot) => {
+          const result = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }));
+          resolve(result);
         });
     } catch (error) {
       reject(error);

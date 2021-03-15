@@ -14,13 +14,27 @@ const App = ({ Component, pageProps }: AppProps) => {
   const [darkMode, setDarkMode] = useState(false);
   const { pathname } = useRouter();
 
+  const installPrompt = (e: any) => {
+    e.preventDefault();
+    e.prompt();
+  };
+
   useEffect(() => {
-    if (localStorage.getItem('display_translatedId') === undefined) {
+    if (localStorage.getItem('display_translatedId') === null) {
       localStorage.setItem('display_translatedId', 'active');
     }
+    if (localStorage.getItem('display_faedah') === null) {
+      localStorage.setItem('display_faedah', 'active');
+    }
+
     setDarkMode(localStorageManager.get() === 'dark');
 
     gaInit();
+
+    window.addEventListener('beforeinstallprompt', installPrompt);
+    return () => {
+      window.removeEventListener('beforeinstallprompt', installPrompt);
+    };
   }, []);
 
   useEffect(() => {

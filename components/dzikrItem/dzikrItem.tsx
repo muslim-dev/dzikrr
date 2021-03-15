@@ -52,9 +52,11 @@ const DzikrItem: React.FC<IDzikrItem> = ({
         <Box p={4}>
           <Box
             textAlign="right"
-            fontFamily="'Scheherazade', serif"
+            fontFamily="'Amiri', serif"
             fontWeight="700"
-            fontSize="3xl"
+            fontSize="2xl"
+            lineHeight="2.4"
+            letterSpacing={{ base: '-0.5px', lg: 0 }}
             mb={4}
             dangerouslySetInnerHTML={{ __html: data.arabic }}
           />

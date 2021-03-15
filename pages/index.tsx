@@ -36,7 +36,20 @@ const navigationData = [
 const Index: NextPage = () => {
   return (
     <>
-      <NextSeo title="Dzikrr" description="Aplikasi Dzikir Pagi dan Petang" />
+      <NextSeo
+        title="Dzikrr"
+        description="Aplikasi Dzikir Pagi dan Petang"
+        openGraph={{
+          images: [
+            {
+              url: '/cover.png',
+              width: 1200,
+              height: 630,
+              alt: 'Dzikrr Cover',
+            },
+          ],
+        }}
+      />
 
       <Box h="100vh" overflow="auto" pos="relative" pl={4} pr={4}>
         <Box
