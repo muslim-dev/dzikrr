@@ -23,6 +23,7 @@ const Index: NextPage = () => {
       <Box pos="relative">
         <DzikrItem
           data={{
+            id: 0,
             arabic: 'أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ',
             arabic_latin: '',
             faedah: '',
@@ -31,6 +32,7 @@ const Index: NextPage = () => {
             title: `Ta'awudz`,
             translated_id:
               'Aku berlindung kepada Allah dari godaan syaitan yang terkutuk.',
+            time: '',
           }}
         />
         {data.dzikr
