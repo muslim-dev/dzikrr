@@ -11,8 +11,10 @@ const App = ({ Component, pageProps }: AppProps) => {
   const { pathname } = useRouter();
 
   const installPrompt = (e: any) => {
-    e.preventDefault();
-    e.prompt();
+    console.log(e.platforms); // e.g., ["web", "android", "windows"]
+    e.userChoice.then((choiceResult) => {
+      console.log(choiceResult.outcome); // either "accepted" or "dismissed"
+    }, console.log);
   };
 
   useEffect(() => {
