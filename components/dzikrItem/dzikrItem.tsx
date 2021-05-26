@@ -11,12 +11,12 @@ import {
   Flex,
   Text,
 } from '@chakra-ui/core';
+import { data as dzikrData } from '@data/dzikr';
 import { gaLogEvent } from '@utils/googleAnalytics';
-import { IDzikrData } from 'api/useDzikr';
 import React, { useState } from 'react';
 
 export interface IDzikrItem extends ChakraProps {
-  data: IDzikrData;
+  data: typeof dzikrData.dzikr[0];
   noTitle?: boolean;
   noFaedah?: boolean;
 }

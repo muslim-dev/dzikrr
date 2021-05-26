@@ -2,7 +2,7 @@ import ReactGA from 'react-ga';
 
 export const gaInit = () => {
   const googleKey: string = process.env.API_GOOGLE_ANALYTIC_KEY || '';
-  ReactGA.initialize(googleKey, { debug: true });
+  ReactGA.initialize(googleKey, { debug: false });
 };
 
 export const gaLogPageView = () => {
